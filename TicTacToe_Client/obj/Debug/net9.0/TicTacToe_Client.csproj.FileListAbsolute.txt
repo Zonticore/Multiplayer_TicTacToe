@@ -1,0 +1,17 @@
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\TicTacToe_Client.exe
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\TicTacToe_Client.deps.json
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\TicTacToe_Client.runtimeconfig.json
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\TicTacToe_Client.dll
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\TicTacToe_Client.pdb
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.AssemblyInfoInputs.cache
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.AssemblyInfo.cs
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.csproj.CoreCompileInputs.cache
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.dll
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\refint\TicTacToe_Client.dll
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.pdb
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.genruntimeconfig.cache
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\ref\TicTacToe_Client.dll
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacToe_Client.csproj.AssemblyReference.cache
+C:\Users\Zonti\Playground\Tester\TicTacToe_Client\obj\Debug\net9.0\TicTacTo.CBD51B70.Up2Date
