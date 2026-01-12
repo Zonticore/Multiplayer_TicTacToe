@@ -22,10 +22,10 @@ public class BoardLogic {
     }
 
     public void makeMove(Coordinate move, char moveChar) throws Exception {
-        if (moves[move.x()][move.y()] != ' ') {
+        if (moves[move.x().pos()][move.y().pos()] != ' ') {
             throw new Exception("Space already taken!");
         }
-        moves[move.x()][move.y()] = moveChar;
+        moves[move.x().pos()][move.y().pos()] = moveChar;
     }
 
     public boolean areAnyMovesLeft() {
@@ -77,7 +77,8 @@ public class BoardLogic {
             if (moves[i][col] != playerChar) {
                 return null;
             }
-            positions.add(new Coordinate(i, col));
+            
+            positions.add(Coordinate.makeCoordinate(i, col, BOARD_SIZE));
         }
         return positions;
     }
@@ -88,7 +89,7 @@ public class BoardLogic {
             if (moves[row][col] != playerChar) {
                 return null;
             }
-            positions.add(new Coordinate(row, col));
+            positions.add(Coordinate.makeCoordinate(row, col, BOARD_SIZE));
         }
         return positions;
     }
@@ -99,7 +100,7 @@ public class BoardLogic {
             if (moves[row][col] != playerChar) {
                 return null;
             }
-            positions.add(new Coordinate(row, col));
+            positions.add(Coordinate.makeCoordinate(row, col, BOARD_SIZE));
         }
         return positions;
     }

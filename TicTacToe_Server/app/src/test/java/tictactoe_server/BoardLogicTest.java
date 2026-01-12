@@ -26,6 +26,10 @@ class BoardLogicTest {
         playerO.playerInfo = new PlayerInfo("testB", 'O');
     }
 
+    private Coordinate makeCoordinate(int x, int y) {
+        return Coordinate.makeCoordinate(x, y, 3);
+    }
+
     @Test
     void testInitialization() {
         assertTrue(board.areAnyMovesLeft(), "Board should have moves left initially");
@@ -34,7 +38,7 @@ class BoardLogicTest {
 
     @Test
     void testMakeValidMove() throws Exception {
-        board.makeMove(new Coordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(0, 0), 'X');
         // Add assertion to check internal state if getter is added, or indirectly via win checks.
         assertEquals(WinType.NONE, board.checkHasPlayerWon(playerX), "Single move shouldn't win");
     }
@@ -42,8 +46,8 @@ class BoardLogicTest {
     @Test
     void testMakeInvalidMove() {
         assertThrows(Exception.class, () -> {
-            board.makeMove(new Coordinate(0, 0), 'X');
-            board.makeMove(new Coordinate(0, 0), 'O');
+            board.makeMove(makeCoordinate(0, 0), 'X');
+            board.makeMove(makeCoordinate(0, 0), 'O');
         }, "Should throw exception for occupied space");
     }
 
@@ -60,9 +64,9 @@ class BoardLogicTest {
         //       |     |
         // 3     |     |   
         //       |     |
-        board.makeMove(new Coordinate(0, 0), 'X');
-        board.makeMove(new Coordinate(0, 1), 'X');
-        board.makeMove(new Coordinate(0, 2), 'X');
+        board.makeMove(makeCoordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(0, 1), 'X');
+        board.makeMove(makeCoordinate(0, 2), 'X');
         assertEquals(WinType.ROW, board.checkHasPlayerWon(playerX), "Should detect row win");
     }
 
@@ -79,9 +83,9 @@ class BoardLogicTest {
         //       |     |
         // 3  O  |     |  
         //       |     |
-        board.makeMove(new Coordinate(0, 0), 'O');
-        board.makeMove(new Coordinate(1, 0), 'O');
-        board.makeMove(new Coordinate(2, 0), 'O');
+        board.makeMove(makeCoordinate(0, 0), 'O');
+        board.makeMove(makeCoordinate(1, 0), 'O');
+        board.makeMove(makeCoordinate(2, 0), 'O');
         assertEquals(WinType.COLUMN, board.checkHasPlayerWon(playerO), "Should detect column win");
     }
 
@@ -98,9 +102,9 @@ class BoardLogicTest {
         //       |     |
         // 3     |     |  X
         //       |     |
-        board.makeMove(new Coordinate(0, 0), 'X');
-        board.makeMove(new Coordinate(1, 1), 'X');
-        board.makeMove(new Coordinate(2, 2), 'X');
+        board.makeMove(makeCoordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(1, 1), 'X');
+        board.makeMove(makeCoordinate(2, 2), 'X');
         assertEquals(WinType.MAIN_DIAGONAL, board.checkHasPlayerWon(playerX), "Should detect main diagonal win");
     }
 
@@ -117,9 +121,9 @@ class BoardLogicTest {
         //       |     |
         // 3  O  |     |  
         //       |     |
-        board.makeMove(new Coordinate(0, 2), 'O');
-        board.makeMove(new Coordinate(1, 1), 'O');
-        board.makeMove(new Coordinate(2, 0), 'O');
+        board.makeMove(makeCoordinate(0, 2), 'O');
+        board.makeMove(makeCoordinate(1, 1), 'O');
+        board.makeMove(makeCoordinate(2, 0), 'O');
         assertEquals(WinType.ANTI_DIAGONAL, board.checkHasPlayerWon(playerO), "Should detect anti-diagonal win");
     }
 
@@ -136,12 +140,12 @@ class BoardLogicTest {
         //       |     |
         // 3  X  |  O  |  
         //       |     |
-        board.makeMove(new Coordinate(0, 0), 'X');
-        board.makeMove(new Coordinate(0, 1), 'O');
-        board.makeMove(new Coordinate(0, 2), 'X');
-        board.makeMove(new Coordinate(1, 0), 'O');
-        board.makeMove(new Coordinate(1, 1), 'X');
-        board.makeMove(new Coordinate(1, 2), 'O');
+        board.makeMove(makeCoordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(0, 1), 'O');
+        board.makeMove(makeCoordinate(0, 2), 'X');
+        board.makeMove(makeCoordinate(1, 0), 'O');
+        board.makeMove(makeCoordinate(1, 1), 'X');
+        board.makeMove(makeCoordinate(1, 2), 'O');
         assertEquals(WinType.NONE, board.checkHasPlayerWon(playerX));
         assertEquals(WinType.NONE, board.checkHasPlayerWon(playerO));
     }
@@ -160,15 +164,15 @@ class BoardLogicTest {
         //       |     |
         // 3  X  |  O  |  X
         //       |     |
-        board.makeMove(new Coordinate(0, 0), 'X');
-        board.makeMove(new Coordinate(0, 2), 'X');
-        board.makeMove(new Coordinate(1, 0), 'X');
-        board.makeMove(new Coordinate(2, 1), 'X');
-        board.makeMove(new Coordinate(2, 2), 'X');
-        board.makeMove(new Coordinate(1, 2), 'O');
-        board.makeMove(new Coordinate(1, 1), 'O');
-        board.makeMove(new Coordinate(0, 1), 'O');
-        board.makeMove(new Coordinate(2, 0), 'O');
+        board.makeMove(makeCoordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(0, 2), 'X');
+        board.makeMove(makeCoordinate(1, 0), 'X');
+        board.makeMove(makeCoordinate(2, 1), 'X');
+        board.makeMove(makeCoordinate(2, 2), 'X');
+        board.makeMove(makeCoordinate(1, 2), 'O');
+        board.makeMove(makeCoordinate(1, 1), 'O');
+        board.makeMove(makeCoordinate(0, 1), 'O');
+        board.makeMove(makeCoordinate(2, 0), 'O');
         assertFalse(board.areAnyMovesLeft(), "No moves left in draw");
         assertEquals(WinType.NONE, board.checkHasPlayerWon(playerX));
         assertEquals(WinType.NONE, board.checkHasPlayerWon(playerO));
@@ -176,7 +180,7 @@ class BoardLogicTest {
 
     @Test
     void testMovesLeft() throws Exception {
-        board.makeMove(new Coordinate(0, 0), 'X');
+        board.makeMove(makeCoordinate(0, 0), 'X');
         assertTrue(board.areAnyMovesLeft(), "Moves should still be left");
     }
 }

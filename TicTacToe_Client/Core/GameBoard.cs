@@ -15,7 +15,7 @@ public class GameBoard : GameBoardInterface
 
     public void makePlacement(Coordinate move, char placementChar)
     {
-        placements[move.x, move.y] = placementChar;
+        placements[move.x.pos, move.y.pos] = placementChar;
     }
 
     public void drawBoard()

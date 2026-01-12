@@ -28,7 +28,7 @@ public class GameLoop : GameLoopInterface
     {
         while (true)
         {
-            Tuple<int, int>? move = null;
+            Coordinate? move = null;
             try
             {
                 move = readMove();
@@ -39,7 +39,7 @@ public class GameLoop : GameLoopInterface
             }
             if (move == null) continue;
             Console.WriteLine($"Made the move {move}");
-            var makeMove = networkLayer.sendRequestAsync("make-move", new MakeMoveRequest(new Coordinate(move.Item1, move.Item2)));
+            var makeMove = networkLayer.sendRequestAsync("make-move", new MakeMoveRequest(move));
             await makeMove;
             if (makeMove.Result?.success == true) break;
             Console.WriteLine($"Failed to make that move");
@@ -111,8 +111,8 @@ public class GameLoop : GameLoopInterface
             }
         }
     }
-    
-    private Tuple<int, int> readMove()
+
+    private Coordinate readMove()
     {
         Console.WriteLine("Pick a pos (x(a-b),y(1-3))");
         var inputLine = Console.ReadLine();
@@ -121,37 +121,27 @@ public class GameLoop : GameLoopInterface
         if (inputValues.Length == 0) throw new InvalidMove("Make sure you use a comma to separate x and y");
         if (inputValues[0].Length == 0) throw new InvalidMove("Needs an X");
         if (inputValues.Length < 2 || inputValues[1].Length == 0) throw new InvalidMove("Needs a Y");
-        List<string> failReasons = [];
-        int inputX = -1;
+        int inputX;
+        if (!inputToNumber(inputValues[0].ToLower()[0], out inputX) && !int.TryParse(inputValues[0], out inputX))
+        {
+            throw new InvalidMove("Invalid Input X");
+        }
+        if (!int.TryParse(inputValues[1], out int inputY)) throw new InvalidMove("Invalid Input Y");
+        return Coordinate.createCoodinate(inputX - 1, inputY - 1, gameBoard.getValidPlacementsSize()); ;
+    }
+    
+    private bool inputToNumber(int input, out int output)
+    {
         for (int i = 0; i < GameBoard.columnNames.Length; i++)
         {
-            if (GameBoard.columnNames[i] == inputValues[0].ToLower()[0]) inputX = i+1;
-        }
-        if (inputX == -1)
-        {
-            if (!int.TryParse(inputValues[0], out inputX)) failReasons.Add($"<Invalid X Value of [{inputValues[0]}]>");
-        }
-        if (!int.TryParse(inputValues[1], out int inputY)) failReasons.Add($"<Invalid Y Value of [{inputValues[1]}]>");
-        if (failReasons.Count > 0)
-        {
-            string failMessage = "Failed to parse input values,";
-            foreach (var message in failReasons)
+            if (GameBoard.columnNames[i] == input)
             {
-                failMessage += message;
+                output = i + 1;
+                return true;
             }
-            throw new InvalidMove(failMessage);
         }
-        var max = gameBoard.getValidPlacementsSize();
-        var min = 1;
-        void checkRange(int value, string name)
-        {
-            if (value < min) failReasons.Add($"{name} must be at least {min}");
-            if (value > max) failReasons.Add($"{name} must be at most {max}");
-        }
-        checkRange(inputX, "X");
-        checkRange(inputY, "Y");
-
-        return new Tuple<int, int>(inputX - 1, inputY - 1);
+        output = -1;
+        return false;
     }
 
     public bool getGameStillRunning()
@@ -178,14 +168,6 @@ public class GameLoop : GameLoopInterface
             default:
                 Console.WriteLine($"Unhandled event type: {eventType}");
                 break;
-        }
-    }
-
-    private class InvalidMove : Exception
-    {
-        public InvalidMove(string message) : base(message)
-        {
-
         }
     }
     

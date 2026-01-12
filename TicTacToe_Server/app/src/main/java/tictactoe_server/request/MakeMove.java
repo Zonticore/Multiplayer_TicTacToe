@@ -3,6 +3,7 @@ package tictactoe_server.request;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import tictactoe_server.network.ClientContext;
+import tictactoe_server.util.InputPositionValidation;
 
 public class MakeMove extends AbstractClientRequest<MakeMoveParams> {
 
@@ -15,10 +16,12 @@ public class MakeMove extends AbstractClientRequest<MakeMoveParams> {
     protected Response execute(ClientContext ctx, MakeMoveParams params) {
         ctx.log("Make move at [" + params.move().x() + ", " + params.move().y() + "]");
 
-        if (params.move().x() < 0 || params.move().x() > 2 || params.move().y() < 0 || params.move().y() > 2) {
-            ctx.sendError("Invalid position");
-            return new Response(false);
-        }
+        InputPositionValidation.assertValid(params.move().x(), 3);
+        InputPositionValidation.assertValid(params.move().y(), 3);
+        // if (params.move().x().pos() < 0 || params.move().x().pos() > 2 || params.move().y().pos() < 0 || params.move().y().pos() > 2) {
+        //     ctx.sendError("Invalid position");
+        //     return new Response(false);
+        // }
 
         try {
             ctx.player().joinedMatch.playerMakesMove(params.move(), ctx);
