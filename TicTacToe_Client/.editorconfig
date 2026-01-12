@@ -1,0 +1,10 @@
+root = true
+
+[*.cs]
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+dotnet_naming_symbols.private_methods.applicable_kinds = method
+dotnet_naming_symbols.private_methods.applicable_accessibilities = private
+dotnet_naming_rule.private_methods_style.symbols = private_methods
+dotnet_naming_rule.private_methods_style.style = camel_case_style
+dotnet_naming_rule.private_methods_style.severity = warning
+<ItemGroup><Compile Include="**/*.cs" Exclude="bin/**;obj/**" /></ItemGroup>

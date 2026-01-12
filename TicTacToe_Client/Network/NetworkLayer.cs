@@ -6,6 +6,9 @@ using Newtonsoft.Json.Linq;
 
 class NetworkLayer
 {
+
+    //Sends requests recieves responses, and recieves server events
+
     public event Action<string, JObject>? OnEventReceived;
 
     public NetworkLayer()
@@ -28,7 +31,7 @@ class NetworkLayer
             writer = new StreamWriter(stream, new UTF8Encoding(false)) { AutoFlush = true };
             Console.WriteLine("Connected successfully!");
 
-            _ = ListenLoop(_listenerCts.Token);
+            _ = listenLoop(_listenerCts.Token);
         }
         catch (SocketException ex)
         {
@@ -42,15 +45,7 @@ class NetworkLayer
         }
     }
 
-    public async Task DisconnectAsync()
-    {
-        _listenerCts.Cancel();
-        writer?.Close();
-        reader?.Close();
-        client?.Close();
-    }
-
-    private async Task ListenLoop(CancellationToken ct)
+    private async Task listenLoop(CancellationToken ct)
     {
         while (!ct.IsCancellationRequested)
         {
@@ -67,7 +62,6 @@ class NetworkLayer
                     break;
                 }
 
-                //Console.WriteLine($"[Server] → {line}");
                 JObject obj = JObject.Parse(line);
                 string? msgType = obj["MessageType"]?.ToString();
 
@@ -86,7 +80,7 @@ class NetworkLayer
                 }
                 else if (msgType == "Event")
                 {
-                    HandleEvent(obj);
+                    handleEvent(obj);
                 }
                 else
                 {
@@ -107,7 +101,7 @@ class NetworkLayer
         _pendingResponses.Clear();
     }
 
-    private void HandleEvent(JObject obj)
+    private void handleEvent(JObject obj)
     {
         string? eventType = obj["EventType"]?.ToString();
         JObject data = obj["Data"] as JObject ?? new JObject();
@@ -127,7 +121,7 @@ class NetworkLayer
 
         try
         {
-            await requestFactory.SendRequestAsync(writer, type, param, requestId);
+            await requestFactory.sendRequestAsync(writer, type, param, requestId);
             Console.WriteLine("Request sent, waiting for response...");
         }
         catch (Exception ex)
@@ -149,7 +143,7 @@ class NetworkLayer
         return response;
     }
 
-    public async Task SendEventAsync(string eventType, object? data = null)
+    public async Task sendEventAsync(string eventType, object? data = null)
     {
         if (writer == null)
         {
@@ -164,7 +158,6 @@ class NetworkLayer
         };
 
         string json = JsonConvert.SerializeObject(eventMsg);
-        //Console.WriteLine($"[Client] → {json}");
         await writer.WriteLineAsync(json);
     }
 

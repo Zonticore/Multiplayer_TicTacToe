@@ -1,16 +1,8 @@
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 public class RequestFactory
 {
-    private readonly JsonSerializerSettings _jsonSettings = new JsonSerializerSettings
-    {
-        ContractResolver = new CamelCasePropertyNamesContractResolver(),
-        NullValueHandling = NullValueHandling.Ignore,
-        Formatting = Formatting.None
-    };
-
-    public async Task SendRequestAsync(StreamWriter writer, string type, object param, string requestId)
+    public async Task sendRequestAsync(StreamWriter writer, string type, object param, string requestId)
     {
         var request = new
         {

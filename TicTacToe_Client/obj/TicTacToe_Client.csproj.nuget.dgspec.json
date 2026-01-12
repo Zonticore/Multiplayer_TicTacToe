@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj": {}
+    "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj": {
+    "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
+        "projectUniqueName": "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
         "projectName": "TicTacToe_Client",
-        "projectPath": "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
+        "projectPath": "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
         "packagesPath": "C:\\Users\\Zonti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\obj\\",
+        "outputPath": "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zonti\\AppData\\Roaming\\NuGet\\NuGet.Config"

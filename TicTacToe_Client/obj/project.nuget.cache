@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mZcV+GmXdYU=",
+  "dgSpecHash": "2Jb4K0Y98JI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zonti\\Playground\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
+  "projectFilePath": "C:\\Users\\Zonti\\GitProjects\\TicTacToe\\TicTacToe_Client\\TicTacToe_Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zonti\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.2\\microsoft.net.illink.tasks.9.0.2.nupkg.sha512",
     "C:\\Users\\Zonti\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512",

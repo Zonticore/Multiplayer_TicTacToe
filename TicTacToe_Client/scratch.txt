@@ -1,0 +1,45 @@
+ Directory of C:\Users\Zonti\GitProjects\TicTacToe\TicTacToe_Client
+
+01/11/2026  05:27 PM    <DIR>          .
+01/11/2026  02:09 PM    <DIR>          ..
+01/11/2026  05:40 PM               424 .editorconfig
+01/10/2026  11:59 PM    <DIR>          bin
+01/11/2026  05:44 PM             3,178 GameBoard.cs
+01/11/2026  05:43 PM               181 GameBoardInterface.cs
+01/11/2026  05:44 PM             6,095 GameLoop.cs
+01/11/2026  05:38 PM               110 GameLoopInterface.cs
+01/11/2026  05:45 PM    <DIR>          Network
+01/11/2026  02:26 PM    <DIR>          obj
+01/11/2026  05:38 PM               839 Player.cs
+01/11/2026  05:39 PM               356 Program.cs
+01/11/2026  05:39 PM               385 TaskEx.cs
+01/11/2026  12:07 AM               892 TicTacToe_Client.csproj
+01/09/2026  07:29 PM             1,126 TicTacToe_Client.sln
+              10 File(s)         13,586 bytes
+
+               2 File(s)     71,687,242 bytes
+
+ Directory of C:\Users\Zonti\GitProjects\TicTacToe\TicTacToe_Client\Network
+
+01/11/2026  05:45 PM    <DIR>          .
+01/11/2026  05:27 PM    <DIR>          ..
+01/10/2026  11:06 PM               151 ClientRequest.cs
+01/10/2026  01:13 AM    <DIR>          ClientRequests
+01/11/2026  02:51 PM               118 Coordinate.cs
+01/11/2026  05:44 PM               146 GameOver.cs
+01/11/2026  05:45 PM               150 MoveMade.cs
+01/11/2026  05:45 PM             5,476 NetworkLayer.cs
+01/11/2026  01:38 PM               110 OpponentsTurn.cs
+01/11/2026  05:42 PM               463 RequestFactory.cs
+01/11/2026  05:42 PM                71 WinType.cs
+01/11/2026  05:35 PM                29 YourTurn.cs
+               9 File(s)          6,714 bytes
+
+ Directory of C:\Users\Zonti\GitProjects\TicTacToe\TicTacToe_Client\Network\ClientRequests
+
+01/10/2026  01:13 AM    <DIR>          .
+01/11/2026  05:45 PM    <DIR>          ..
+01/11/2026  02:49 PM               104 MakeMoveRequest.cs
+01/10/2026  11:06 PM               116 ReadyToStartRequest.cs
+01/11/2026  12:35 AM                97 Response.cs
+               3 File(s)            317 bytes
